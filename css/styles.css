@@ -17,6 +17,12 @@
 html {
   scroll-behavior: smooth;
 }
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: var(--main-color);
+}
 body {
   font-family: "Cairo", sans-serif;
 }
