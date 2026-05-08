@@ -456,7 +456,7 @@ header .container .main-nav .mega-menu .links li a i {
   opacity: 0;
 }
 .gallery .container .box:hover .image::before {
-  animation: flash .5s linear;
+  animation: flash 0.5s linear;
 }
 .gallery .container .box .image img {
   width: 100%;
@@ -467,7 +467,8 @@ header .container .main-nav .mega-menu .links li a i {
   transform: rotate(5deg) scale(1.1);
 }
 @keyframes flash {
-  0%, 40%{
+  0%,
+  40% {
     opacity: 1;
   }
   100% {
@@ -477,3 +478,129 @@ header .container .main-nav .mega-menu .links li a i {
   }
 }
 /* End Gallery */
+
+/* Start Features */
+.features {
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  background-color: white;
+}
+.features .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+}
+.features .container .box {
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.features .container .box .image {
+  position: relative;
+  overflow: hidden;
+}
+.features .container .box .image::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.features .container .box:first-child .image::before {
+  background-color: rgb(244 64 54 / 60%);
+}
+.features .container .box:nth-child(2) .image::before {
+  background-color: rgb(0 150 136 / 60%);
+}
+.features .container .box:last-child .image::before {
+  background-color: rgb(3 169 244 / 60%);
+}
+.features .container .box .image::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-style: solid;
+  border-width: 0px 0px 170px 500px;
+  border-color: transparent transparent white transparent;
+  transition: var(--main-transition);
+}
+.features .container .box:hover .image::after {
+  border-width: 0px 500px 170px 0px;
+  border-color: transparent transparent white transparent;
+}
+.features .container .box .image img {
+  max-width: 100%;
+}
+.features .container .box h3 {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 40px;
+  text-transform: capitalize;
+}
+.features .container .box h3::after {
+  content: "";
+  width: calc(100% - 30px);
+  height: 5px;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.features .container .box:first-child h3::after {
+  background-color: #f44036;
+}
+.features .container .box:nth-child(2) h3::after {
+  background-color: #009688;
+}
+.features .container .box:last-child h3::after {
+  background-color: #03a9f4;
+}
+.features .container .box p {
+  margin: 30px 0;
+  padding: 25px;
+  line-height: 2;
+  font-size: 20px;
+  color: #777;
+}
+.features .container .box a {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 30px;
+  padding: 10px 30px;
+  border: 3px solid transparent;
+  border-radius: 6px;
+  color: #1787e0;
+  text-transform: capitalize;
+  font-size: 22px;
+  font-weight: bold;
+  transition: var(--main-transition);
+}
+.features .container .box:first-child a {
+  border-color: #f44036;
+  color: #f44036;
+  background: linear-gradient(to right, #f44036 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+.features .container .box:nth-child(2) a {
+  border-color: #009688;
+  color: #009688;
+  background: linear-gradient(to right, #009688 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+.features .container .box:last-child a {
+  border-color: #03a9f4;
+  color: #03a9f4;
+  background: linear-gradient(to right, #03a9f4 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+.features .container .box:hover a {
+  background-position: left bottom;
+  color: white;
+}
+
+/* End Features */
