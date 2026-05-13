@@ -839,3 +839,51 @@ header .container .main-nav .mega-menu .links li a i {
   color: var(--main-color);
 }
 /* End Services */
+
+/* Start Our Skills */
+.our-skills{
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.our-skills .container{
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 991px) {
+  .our-skills .container img{
+    display: none;
+  }
+}
+.our-skills .container .skills{
+  width: 100%;
+}
+.our-skills .container .skills .skill{
+  padding: 10px 0;
+} 
+.our-skills .container .skills .skill h3{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 
+.our-skills .container .skills .skill h3 > span{
+  color: var(--main-color);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 3px 5px;
+  font-size: 12px;
+} 
+.our-skills .container .skills .skill .progress{
+  height: 30px;
+  margin-top: 20px;
+  background-color: #eee;
+  position: relative;
+} 
+.our-skills .container .skills .skill .progress > span{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: var(--main-color);
+  transition: width 0.5s linear;
+} 
+/* End Our Skills */
