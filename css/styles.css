@@ -1374,3 +1374,108 @@ header .container .main-nav .mega-menu .links li a i {
   color: var(--main-color);
 }
 /* End Stats */
+
+/* Start Request A Discount */
+.request-discount {
+  min-height: 100dvh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.request-discount .content {
+  text-align: center;
+  padding: 0 20px;
+}
+.request-discount .content h2 {
+  font-size: 40px;
+  letter-spacing: -2px;
+  margin: 33px 0;
+}
+.request-discount .image {
+  background-image: url("../imgs/discount-background1.jpg");
+  background-size: cover;
+  color: white;
+  flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  animation: change-background 10s linear infinite;
+}
+.request-discount .image::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(23 135 224 / 97%);
+  z-index: -1;
+}
+@media (max-width: 991px) {
+  .request-discount .image {
+    flex-basis: 100%;
+  }
+}
+.request-discount .image .content p {
+  line-height: 1.6;
+  max-width: 500px;
+  font-size: 18px;
+  margin: 18px 0;
+}
+.request-discount .image .content img {
+  width: 300px;
+  max-width: 100%;
+}
+.request-discount .form {
+  flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 991px) {
+  .request-discount .form {
+    flex-basis: 100%;
+    padding-bottom: 50px;
+  }
+}
+.request-discount .form .content form .input {
+  display: block;
+  width: 100%;
+  margin-bottom: 25px;
+  padding: 15px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: #f7f7f7;
+  caret-color: var(--main-color);
+  outline: none;
+}
+.request-discount .form .content form textarea.input {
+  resize: none;
+  height: 200px;
+}
+.request-discount .form .content form [type="submit"] {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: var(--main-color);
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.request-discount .form .content form [type="submit"]:hover {
+  background-color: var(--main-color-alt);
+}
+@keyframes change-background {
+  0%,
+  100% {
+    background-image: url("../imgs/discount-background1.jpg");
+  }
+  50% {
+    background-image: url("../imgs/discount-background2.jpg");
+  }
+}
+/* End Request A Discount */
