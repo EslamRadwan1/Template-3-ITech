@@ -26,6 +26,13 @@ html {
 body {
   font-family: "Cairo", sans-serif;
 }
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
 ul {
   list-style: none;
   margin: 0;
@@ -161,6 +168,10 @@ a {
     linear-gradient(225deg, white 25%, transparent 25%);
   background-size: 30px 30px;
   z-index: 1;
+}
+.show-section {
+  opacity: 1;
+  transform: translateY(0);
 }
 /* End Components */
 
