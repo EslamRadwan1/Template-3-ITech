@@ -1042,7 +1042,7 @@ header .container .main-nav .mega-menu .links li a i {
 }
 .events .container .info .time .unit span {
   display: block;
-  padding: 15px;
+  padding: 15px 5px;
   font-size: 35px;
   font-weight: bold;
   color: var(--main-color);
