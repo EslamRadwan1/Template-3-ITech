@@ -173,6 +173,38 @@ a {
   opacity: 1;
   transform: translateY(0);
 }
+.scroll-progress-bar {
+  width: 0;
+  height: 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  background-color: var(--main-color);
+}
+.scroll-progress-btn {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 99999;
+  border-radius: 50%;
+  background-color: #2195f33b;
+  opacity: 0;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.scroll-progress-btn::before {
+  content: "\f062";
+  font-family: "Font Awesome 7 Pro";
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
 /* End Components */
 
 /* Start Header */
