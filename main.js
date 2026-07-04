@@ -1,23 +1,54 @@
-// Skills Progress Bar Animation
+// // Sections Show Animation
+const allSections = document.querySelectorAll("section");
+
+const sectionsObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show-section");
+        sectionsObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.1 },
+);
+allSections.forEach((sec) => sectionsObserver.observe(sec));
+
+// // Skills Progress Bar Animation
 const ourSkillsSection = document.querySelector(".our-skills");
 const progressSpans = document.querySelectorAll(".our-skills .progress span");
-let progressStarted = false;
 
-window.addEventListener("scroll", function () {
-  if (
-    window.scrollY >= ourSkillsSection.offsetTop - window.innerHeight + 500 &&
-    !progressStarted
-  ) {
-    progressSpans.forEach(startProgress);
-    progressStarted = true;
-  }
-});
+const progressObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        progressSpans.forEach(startProgress);
+        progressObserver.unobserve(ourSkillsSection);
+      }
+    });
+  },
+  { threshold: 0.5 },
+);
+progressObserver.observe(ourSkillsSection);
+
 function startProgress(el) {
   const goalWidth = el.dataset.width;
   el.style.width = goalWidth;
 }
+//// OLD WAY
+// let progressStarted = false;
 
-// Events Countdown Timer
+// window.addEventListener("scroll", function () {
+//   if (
+//     window.scrollY >= ourSkillsSection.offsetTop - window.innerHeight + 500 &&
+//     !progressStarted
+//   ) {
+//     progressSpans.forEach(startProgress);
+//     progressStarted = true;
+//   }
+// });
+
+// // Events Countdown Timer
 const days = document.querySelector(".events .days");
 const hours = document.querySelector(".events .hours");
 const minutes = document.querySelector(".events .minutes");
@@ -25,7 +56,6 @@ const seconds = document.querySelector(".events .seconds");
 const countdownTime = new Date("Jan 01, 2027 17:00:00").getTime();
 
 const counter = setInterval(() => {
-  console.log("print")
   const dateDiff = countdownTime - Date.now();
 
   if (dateDiff <= 0) {
@@ -52,20 +82,22 @@ const counter = setInterval(() => {
   seconds.innerHTML = theSeconds < 10 ? `0${theSeconds}` : theSeconds;
 }, 1000);
 
-// Stats Count Animation
+// // Stats Count Animation
 const statsSection = document.querySelector(".stats");
 const statsNumbers = document.querySelectorAll(".stats .number");
-let countStarted = false;
 
-window.addEventListener("scroll", () => {
-  if (
-    window.scrollY >= statsSection.offsetTop - window.innerHeight + 400 &&
-    !countStarted
-  ) {
-    statsNumbers.forEach(startCount);
-    countStarted = true;
-  }
-});
+const statsObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        statsNumbers.forEach(startCount);
+        statsObserver.unobserve(statsSection);
+      }
+    });
+  },
+  { threshold: 0.5 },
+);
+statsObserver.observe(statsSection);
 
 function startCount(el) {
   const goal = Number(el.dataset.goal);
@@ -78,3 +110,15 @@ function startCount(el) {
     }
   }, 2000 / goal);
 }
+//// OLD WAY
+// let countStarted = false;
+// window.addEventListener("scroll", () => {
+//   if (
+//     window.scrollY >= statsSection.offsetTop - window.innerHeight + 400 &&
+//     !countStarted
+//   ) {
+//     statsNumbers.forEach(startCount);
+//     countStarted = true;
+//   }
+// });
+
