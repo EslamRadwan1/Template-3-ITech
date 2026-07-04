@@ -122,3 +122,32 @@ function startCount(el) {
 //   }
 // });
 
+// // Scroll Progress
+let height;
+function updateHeight() {
+  height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+}
+updateHeight();
+window.addEventListener("resize", updateHeight);
+
+const progressBar = document.querySelector(".scroll-progress-bar");
+const progressBtn = document.querySelector(".scroll-progress-btn");
+window.addEventListener("scroll", () => {
+  const scrollTop = document.documentElement.scrollTop;
+  progressBar.style.width = `${(scrollTop / height) * 100}%`;
+  progressBtn.style.background = `linear-gradient(to top, #2196f3 ${(scrollTop / height) * 100}%, #2195f33b 0%)`;
+  if (scrollTop >= 600) {
+    progressBtn.style.opacity = 1;
+  } else {
+    progressBtn.style.opacity = 0;
+  }
+});
+
+progressBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
